@@ -2,7 +2,7 @@ class AnimeClient {
     constructor(options = {
         object: true
     }) {
-        if(typeof options.object !== 'boolean') throw new Error('Names option must be boolean.')
+        if(typeof options.object !== 'boolean') throw new TypeError('Names option must be boolean.')
         this.object = options.object
     }
     /**
@@ -11,8 +11,8 @@ class AnimeClient {
      * @returns {string|object} With the data
      */
     sfw(name) {
-        if(!name || typeof name !== 'string') throw new Error('You must provide a valid interaction/reaction name. Ex: kiss')
-        if(!this.isValidName(name.toLowerCase(), 'sfw')) throw new Error('Invalid name provided.')
+        if(!name || typeof name !== 'string') throw new TypeError('You must provide a valid interaction/reaction name. Ex: kiss')
+        if(!this.isValidName(name.toLowerCase(), 'sfw')) throw new TypeError('Invalid name provided.')
         let object = require(`../gifs/sfw/${name.toLocaleLowerCase()}.json`)
         return this.object ? this.random(object): this.random(object).url
     }
@@ -22,8 +22,8 @@ class AnimeClient {
      * @returns {string} The url of the gif
      */
     nsfw(name) {
-        if(!name || typeof name !== 'string') throw new Error('You must provide a valid interaction/reaction name. Ex: kiss')
-        if(!this.isValidName(name.toLocaleLowerCase(), 'nsfw')) throw new Error('Invalid name provided.')
+        if(!name || typeof name !== 'string') throw new TypeError('You must provide a valid interaction/reaction name. Ex: kiss')
+        if(!this.isValidName(name.toLocaleLowerCase(), 'nsfw')) throw new TypeError('Invalid name provided.')
         let object = require(`../gifs/nsfw/${name.toLocaleLowerCase()}.json`)
         return this.random(object)
     }
