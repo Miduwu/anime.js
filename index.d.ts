@@ -1,5 +1,12 @@
-import { AnimeClient } from "src/classes/anime";
+import { AnimeClient } from "./src/index";
 
 export { AnimeClient }
 
-export default { AnimeClient }
+export interface AnimeClientOptions {
+    object?: boolean
+}
+
+export interface AnimeObject {
+    url: string,
+    name: string
+}
