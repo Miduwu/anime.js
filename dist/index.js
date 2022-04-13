@@ -3,12 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AnimeClient = void 0;
 class AnimeClient {
     object;
-    constructor(options = {
-        object: true
-    }) {
+    constructor(options) {
         if (typeof options.object !== 'boolean')
             throw new TypeError('Names option must be boolean.');
-        this.object = options.object;
+        this.object = options.object || true;
     }
     sfw(name) {
         if (!name || typeof name !== 'string')
