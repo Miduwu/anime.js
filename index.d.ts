@@ -1,5 +1,3 @@
-import { AnimeClient } from "./src/index";
-
 export interface AnimeClientOptions {
     object?: boolean
 }
@@ -9,4 +7,9 @@ export interface AnimeObject {
     name: string
 }
 
-export { AnimeClient }
+export class AnimeClient {
+    constructor(options: AnimeClientOptions);
+    public sfw(name: string): AnimeObject | string;
+    public nsfw(name: string): string;
+    public isValidName(name: string, group: string): boolean;
+}
