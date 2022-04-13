@@ -1,8 +1,8 @@
-export interface AnimeClientOptions {
+export type AnimeClientOptions = {
     object?: boolean
 }
 
-export interface AnimeObject {
+export type AnimeObject = {
     url: string,
     name: string
 }
